@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Full Stack Developer Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GSAP -->
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+<style>
+:root {
+  --bg: #020617;
+  --bg-soft: rgba(255,255,255,0.06);
+  --text: #e5e7eb;
+  --accent: #e00b81;
+}
+
+.light {
+  --bg: #090227;
+  --bg-soft: rgba(0,0,0,0.06);
+  --text: #a4b1c4;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #310909fa, var(--bg));
+  color: var(--text);
+  transition: background 0.4s, color 0.4s;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 24px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+button {
+  background: var(--bg-soft);
+  border: none;
+  color: var(--text);
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 120px;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 28px;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.6);
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.479);
+  color: var(--accent);
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+}
+
+section {
+  margin-bottom: 100px;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+}
+
+.skills, .projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--bg-soft);
+  padding: 26px;
+  border-radius: 20px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.tags span {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: rgba(99,102,241,0.15);
+  padding: 6px 10px;
+  border-radius: 999px;
+  margin-right: 6px;
+}
+
+a.project-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+footer {
+  text-align: center;
+  opacity: 0.6;
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <h3>👨‍💻 Full Stack Developer</h3>
+  <div>
+    <button id="themeToggle">🌙</button>
+    <a href="resume.pdf" download>
+      <button>⬇ Resume</button>
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <span class="badge">JavaScript • HTML • CSS</span>
+    <h1>Hi,I am Shahab Zaman Aatif.I build modern, fast & scalable web experiences.</h1>
+    <p>
+      Full Stack Developer focused on clean UI, solid logic,
+      and production-ready web applications.
+    </p>
+  </div>
+  <img src="punjabi.jpg" alt="Profile">
+</section>
+
+<!-- SKILLS -->
+<section class="reveal">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="card">Frontend<br><b>HTML, CSS, JavaScript</b></div>
+    <div class="card">Backend<br><b>Node.js, APIs</b></div>
+    <div class="card">Tools<br><b>Git, GitHub, Vercel</b></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="reveal">
+  <h2>Projects</h2>
+  <div class="projects">
+
+    <div class="card">
+      <h3>Weather App</h3>
+      <p>Live weather, maps, multi-city forecasts.</p>
+      <div class="tags">
+        <span>JS</span><span>API</span><span>UI</span>
+      </div>
+      <a class="project-link" href="https://github.com/yourusername/weather-app" target="_blank">
+        View on GitHub →
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Landing Page</h3>
+      <p>High-performance business landing page.</p>
+      <div class="tags">
+        <span>HTML</span><span>CSS</span>
+      </div>
+      <a class="project-link" href="https://github.com/yourusername/landing-page" target="_blank">
+        View on GitHub →
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Admin Dashboard</h3>
+      <p>Content & user management system.</p>
+      <div class="tags">
+        <span>JS</span><span>Logic</span>
+      </div>
+      <a class="project-link" href="https://github.com/yourusername/dashboard" target="_blank">
+        View on GitHub →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 • Full Stack Developer<br>Contact me:+880 1522105347
+</footer>
+
+</div>
+
+<script>
+/* ---------- DARK / LIGHT ---------- */
+const toggle = document.getElementById("themeToggle");
+const saved = localStorage.getItem("theme");
+
+if (saved === "light") document.body.classList.add("light");
+
+toggle.onclick = () => {
+  document.body.classList.toggle("light");
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("light") ? "light" : "dark"
+  );
+};
+
+/* ---------- GSAP ANIMATIONS ---------- */
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".hero div, .hero img", {
+  opacity: 0,
+  y: 60,
+  duration: 1,
+  stagger: 0.2
+});
+
+gsap.utils.toArray(".reveal").forEach(section => {
+  gsap.from(section, {
+    opacity: 0,
+    y: 80,
+    duration: 1,
+    scrollTrigger: {
+      trigger: section,
+      start: "top 80%"
+    }
+  });
+});
+</script>
+
+</body>
+</html>
